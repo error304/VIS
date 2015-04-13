@@ -49,40 +49,183 @@
         <h1>
 <a id="members" class="anchor" href="#members" aria-hidden="true"><span class="octicon octicon-link"></span></a>Members</h1>
 
-<h2>
-<a id="members-1" class="anchor" href="#members-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Members</h2>
-
-<h3>
-<a id="members-2" class="anchor" href="#members-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Members</h3>
-
 <p>Joseph Pober, <a href="mailto:error304@hotmail.de">error304@hotmail.de</a></p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+<h1>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span class="octicon octicon-link"></span></a>Description</h1>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h2>
+<a id="target-application" class="anchor" href="#target-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>Target Application</h2>
+
+<p>GeneCalc allows users to visualize datasets through R-Apps. This helps people with little to no experience in </p>
+
+<p>programming to utilise R. Instead of actually programming the desired plot, one simply selects a </p>
+
+<p>visualization method (i.e. histogram) and enters the parameters into the provided textboxes. 
+The problem is that this whole workflow only works with exactly one set of parameters at a time. Many user </p>
+
+<p>will want to test multiple ranges of parameters to find the desired result. Having to enter a set of </p>
+
+<p>parameters and then wait for the computer to finish the calculations does not only waste a lot of time it </p>
+
+<p>also interrupts the workflow of the user considerably.
+Solving this problem requires users to be able to enter ranges of parameters instead of only a single set. </p>
+
+<p>With this a problem in presentation arises, since many results in form of complex objects may appear and have </p>
+
+<p>to presented to the user. This will mostlikely be done by clustering the results and only showing examples or </p>
+
+<p>averages of those clusters to the user. They can then choose a to inpect a cluster, which either shows all </p>
+
+<p>results of that cluster or shows again some subclusters of this cluster. Following the design principle of </p>
+
+<p>showing first an overview and only later zooming in and providing details.</p>
+
+<h2>
+<a id="dataset" class="anchor" href="#dataset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dataset</h2>
+
+<p>The data is a table consisting mainly of floats. Each row represents a gene and each colum a celltype. The </p>
+
+<p>floats try to show the likelyhood of a gene being responsible for a cell to form a certain celltype. Since </p>
+
+<p>this is real world data, there is quite a lot of noise and often multiple samples of the same type must be </p>
+
+<p>taken and recorded to be sure that the results are not distorted too much by noise.</p>
+
+<p>The program is supposed to work with any data. The data described above is just used by the test users, since </p>
+
+<p>those are biologists.</p>
+
+<h2>
+<a id="users" class="anchor" href="#users" aria-hidden="true"><span class="octicon octicon-link"></span></a>Users</h2>
+
+<p>The users will have little to no programming knowledge, but want to have powerful visualizations of their </p>
+
+<p>data. </p>
+
+<h2>
+<a id="tasks" class="anchor" href="#tasks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tasks</h2>
 
 <h3>
-<a id="designer-templates" class="anchor" href="#designer-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<p>The current state of the program allows the user to access all available parameteres for each visualization </p>
 
-<h3>
-<a id="rather-drive-stick" class="anchor" href="#rather-drive-stick" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<p>technique. Most of which many users might not understand and are not necessary for the user to be able to </p>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p>change themselves. It is important to figure out which parameteres should be presented to the user, which </p>
 
-<h3>
-<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>parameters should be set automatically, and which parameters could be hidden and only shown on demand.</p>
 
 <h3>
-<a id="support-or-contact" class="anchor" href="#support-or-contact" aria-hidden="true"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a id="input" class="anchor" href="#input" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="https://help.github.com/pages">https://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>At the moment it is not possible to enter ranges for parameteres or multiple sets of parameteres at once. </p>
+
+<p>Since the goal of this project is to allow the program to accept multiple inputs and generate multiple </p>
+
+<p>outputs it is necessesary for the user to be able to input the desired parameter ranges.</p>
+
+<h3>
+<a id="automatically-set-values" class="anchor" href="#automatically-set-values" aria-hidden="true"><span class="octicon octicon-link"></span></a>Automatically Set Values</h3>
+
+<p>Since users will be able to set ranges for parameters it is important to figure out a good step size </p>
+
+<p>automatically. It is also important to have well suited default parameters and to calculate as many </p>
+
+<p>parameters as possible automatically. This way the user does not have to understand everything about the </p>
+
+<p>visualization method of their choosing and still get reasonable results.</p>
+
+<h3>
+<a id="show-randomness" class="anchor" href="#show-randomness" aria-hidden="true"><span class="octicon octicon-link"></span></a>Show Randomness</h3>
+
+<p>Some processes involve randomness, like k-means clustering, this has to be communicted to the user, since </p>
+
+<p>multiple runs with identical input might result in different output. This also complicates saving models, </p>
+
+<p>since models with the same input might still be different or produce different outputs.</p>
+
+<h3>
+<a id="representation-of-results" class="anchor" href="#representation-of-results" aria-hidden="true"><span class="octicon octicon-link"></span></a>Representation of Results</h3>
+
+<p>Many complex objects at once are not easily presented to the user without them having to invest a lot of time </p>
+
+<p>to examine them all individually. It is therefor paramount to find a way to organize the output of the </p>
+
+<p>program in such a manner that users get first an overview of the generated output and then can request </p>
+
+<p>details for objects of interest. This will be the main focus and much more diffcult than the other tasks.</p>
+
+<h3>
+<a id="generalization" class="anchor" href="#generalization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generalization</h3>
+
+<p>It is important that the input ranges and the representation of the output work for all visualization </p>
+
+<p>techniques and not only for a select few. This might be not as diffucult once a general solution for a single </p>
+
+<p>problem is found.</p>
+
+<h2>
+<a id="solution" class="anchor" href="#solution" aria-hidden="true"><span class="octicon octicon-link"></span></a>Solution</h2>
+
+<h3>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+
+<p>A good solution would be to limit user input to control parameters and let the program itself decide the </p>
+
+<p>model parameteres. The model parameteres are still accessable by the user, but hidden until demanded and set </p>
+
+<p>by the program if left empty.</p>
+
+<h3>
+<a id="input-1" class="anchor" href="#input-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Input</h3>
+
+<p>This is actually quite easy. Instead of having one text box for each numeric parameter the would simply be </p>
+
+<p>two textboxes one named "start" and one "end". For non-numeric values one could use instead of drop-down </p>
+
+<p>menus and radioboxes simple check-boxes to be able to activate all desired options.</p>
+
+<h3>
+<a id="automatically-set-values-1" class="anchor" href="#automatically-set-values-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Automatically Set Values</h3>
+
+<p>The main concern is the step size of parameteres with a range of values. The step size should be dynamic and </p>
+
+<p>focus on areas of maximum change. There should be big steps where there is little change and small steps when </p>
+
+<p>parameter values get into certain areas with big changes. This leads to an array of steps for each parameter </p>
+
+<p>instead of a fixed amount by which a parameter is incremeted.</p>
+
+<h3>
+<a id="show-randomness-1" class="anchor" href="#show-randomness-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Show Randomness</h3>
+
+<p>One way of pointing out randomness would be to show the seed which is being used to calculate the output. </p>
+
+<p>This seed would also be saved so each time the user loads the model they get the same results. Users would </p>
+
+<p>also be able to manually enter a desired seed.</p>
+
+<h3>
+<a id="representation-of-results-1" class="anchor" href="#representation-of-results-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Representation of Results</h3>
+
+<p>There are certainly many different solutions to this problem, but I think a very intuetiv solution would be </p>
+
+<p>trying to cluster the output into a manageable amount of clusters and presenting those clusters to the user </p>
+
+<p>instead of all results at once. To give the user an idea of how those clusters look like one could either </p>
+
+<p>average all subclusters of this cluster and present a new output as thumbnail or select a specific </p>
+
+<p>representative output and display this. Choosing a representative object would either be at random, which is </p>
+
+<p>not really representative or choosing the object that is the most like all other objects in its cluster.
+When a cluster gets chosen by the user they are presentet either the individual objects in this cluster or a </p>
+
+<p>couple of subclusters, depending on the amount of objects and method of clustering. This continues until no </p>
+
+<p>more subclusters are needed to represent the objects.</p>
       </section>
 
       <footer>
