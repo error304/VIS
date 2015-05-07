@@ -28,7 +28,6 @@
         <span class="ribbon-outer">
           <span class="ribbon-inner">
             <h1>VIS</h1>
-            <a href="http://error304.github.io/VIS/milestones">Milesone</a>
             <h2>Project Summary</h2>
           </span>
           <span class="left-tail"></span>
@@ -141,10 +140,134 @@ When a cluster gets chosen by the user they are presented either the individual 
 
 <p>I did not spend too much time thinking about how to handle generalization, since I am still trying to figure out how to represent the results of a specific visualization technique. Generalizing after getting an idea how the specific solution should work, should not be too complicated.</p>
 
+<h2>
+<a id="storyboard---pdf" class="anchor" href="#storyboard---pdf" aria-hidden="true"><span class="octicon octicon-link"></span></a>Storyboard - <a href="http://error304.github.io/VIS/Storyboard.pdf">PDF</a>
+</h2>
+
+<p>This is how I imagine a user interacting with my prototype. The PDF shows how a user would fulfill the most common tasks step-by-step. </p>
+
+<h2>
+<a id="views---pdf" class="anchor" href="#views---pdf" aria-hidden="true"><span class="octicon octicon-link"></span></a>Views - <a href="http://error304.github.io/VIS/Views.pdf">PDF</a>
+</h2>
+
+<h3>
+<a id="parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
+
+<p>On the top is the seed. This text field only appears if the visualization method requires randomness. Leaving it empty will generate a new, random seed to be used. If a cluster is selected, the seed that was used to generate all runs is shown. 
+Variables allows user to select which attributes they want to be used in the visualization of the selected data. 
+For each parameter a slider is used to select the min and max values of this parameter. The slider with the lower value will be automatically the minimum and the slider with the larger value will be the maximum. It is also possible to enter a value into the text boxes next to the sliders. Those boxes display the current min and max. Little marks on the sliders show the default value for the min and max. Double-Clicking a slider will reset it to its default value. If a cluster is selected a histogram is shown above the slider, showing the distribution of this parameter across all clusters. The distribution of the parameter specifically of the selected cluster is highlighted.
+On the bottom is a button which lets the user start a run. There are multiple methods, which can be selected with the combo-box next to the button, of entering how many runs will be computed. If a cluster is selected, the user will have instead a use button. This transforms the current work pane, which is used for exploring all clusters, into the representative of the currently selected cluster.</p>
+
+<h4>
+<a id="run-buttons" class="anchor" href="#run-buttons" aria-hidden="true"><span class="octicon octicon-link"></span></a>Run Buttons</h4>
+
+<p>Those are the available methods of definig how long the program should run:
+Entering a time and date until when the program should be finished. This is most suitable for situations in which the user wants their program to run over night or over the weekend and want to resume working at a specific time.
+Entering the amount of time the program has. This will be used if the user only has a specific amount of time in which they wish to do something else (i.e. lunch break).
+Entering the exact amount of runs that should be computed. This will most likely only be used for testing purposes if the user just wants a couple runs to see if they selected reasonable parameters.</p>
+
+<h4>
+<a id="presets" class="anchor" href="#presets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Presets</h4>
+
+<p>On the top right is a drop-down menu which allows the user to save a the current ranges for their parameters as a preset. It can also be used while exploring the data and using an already existing cluster as a preset. The user can also select already existing presets for the type of visualization they are using from the drop-down menu.</p>
+
+<h4>
+<a id="filtering" class="anchor" href="#filtering" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filtering</h4>
+
+<p>Changing the values of the parameters while exploring, automatically filters the data. Loading presets while exploring has the same effect.</p>
+
+<h4>
+<a id="sliders" class="anchor" href="#sliders" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sliders</h4>
+
+<p>The values of the sliders are set to predetermined default values. If there is no fixed maximum or minimum value for this parameter, then the start and/or the end are flexible. If both ends are flexible, the slider will be scaled that the default max value is at about 75% of the way on the slider and the minimum at about 25%. The user can drag a slider to a flexible end, where the slider graphic will stop, but the user can keep going with the mouse across the screen and change the value in this manner farther than the slider would initially allow for. Letting go of the slider after changing an extreme value rescales the slider in a way that the maximum is again at about 75% and the minimum at 25%.</p>
+
+<h3>
+<a id="interactions-with-the-plots" class="anchor" href="#interactions-with-the-plots" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interactions with the Plots</h3>
+
+<p>Plots can be dragged from results window into a work pane to allow working with it or to be saved for later use.
+Double Clicking interacts with the plot, most often showing its children.
+The shown thumbnail of each cluster is the one that is the least different to all other clusters. It is therefore an actual cluster and can be used. Using the average to be displayed in each cluster might give better visual clues about the cluster, but is impractical, because its not a real cluster.
+Shift-Click selects multiple plots for comparison.</p>
+
+<h4>
+<a id="zoom" class="anchor" href="#zoom" aria-hidden="true"><span class="octicon octicon-link"></span></a>Zoom</h4>
+
+<p>Clicking the plus icon on top of the selected plot enlarges it quickly (animation) to cover the whole results pane. This can also be done for the graphical representation of the comparison of multiple nodes. Clicking the minus on top of the zoomed in node shrinks it back to normal size.</p>
+
+<h3>
+<a id="tree" class="anchor" href="#tree" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tree</h3>
+
+<p>Two plots are shown next to each other for easy comparison. Double-Clicking shows its children. The move up button is used to move up one level in the hierarchy and display the parent of the currently shown nodes. It is the simplest way to visualize and compare two nodes. The advantage of this view is, that is very easy to understand and has almost no clutter or elements that distract the user from the task of exploring and comparing data. Of course this is also a problem, since there are no additional features and no context is provided to the user.</p>
+
+<h3>
+<a id="hover" class="anchor" href="#hover" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hover</h3>
+
+<p>This one works just as the "Tree", but allows the user to hover over a node, which in return then displays its children in a tooltip. This feature could be also used with any other view. Additional nodes on display may be too much information at once, but allows the user to peek inside a given node before committing and actually exploring a given node. The size and position of the tooltip can be varied to achieve different goals. 
+If the hover function is just supposed to provide a quick glance into the node, the tooltips could be very small disappear as soon as a user stops hovering over the node. 
+The hover function could also be meant to be a way to actually compare the children of this node to the already shown nodes. It would be necessary to make them similarly big as their parent and let them be fixed by clicking on the node. They would only disappear again after a user clicks on a node that currently displays tooltips.</p>
+
+<h3>
+<a id="history" class="anchor" href="#history" aria-hidden="true"><span class="octicon octicon-link"></span></a>History</h3>
+
+<p>The currently selected node is displayed in the center of the screen, while its root is displayed above it and its children beneath it. This gives the user much needed context and allows them to better understand the underlying hierarchical structure of the data. Selecting a new node moves it into the center and displays it root above it and its children below it. This will be done via animation to not confuse the user.</p>
+
+<h3>
+<a id="file-browser" class="anchor" href="#file-browser" aria-hidden="true"><span class="octicon octicon-link"></span></a>File Browser</h3>
+
+<p>Each node can be "opened" like a directory to display its children. The size of each node is in relation to its distance, measured in edges, to the currently selected node. If a node is too far away it will be removed from the screen and only reappear, after a node is selected which is close enough to this node. The selected node also tries to move towards the center of the screen, but does so in a very soft approach to not disturb the currently established layout not too much.
+Clicking on a node "opens" it. A click on an already open node, closes it again.</p>
+
+<h3>
+<a id="force-directed-layout" class="anchor" href="#force-directed-layout" aria-hidden="true"><span class="octicon octicon-link"></span></a>Force Directed Layout</h3>
+
+<p>This view does not cluster the data into a hierarchical structure. It clusters all images that surpass a certain threshold, set by the user, in similarity. The slider used to regulate this threshold has histogram above it, to display the distribution of the clusters regarding the currently set threshold. There is no set amount of nodes per cluster and with a very high intra cluster threshold many clusters with just a single node may appear, while a lower threshold might lead to some very big clusters.
+The relative distance between each cluster encodes their similarity to each other. The absolute position of the clusters does not bear any meaning.</p>
+
+<h3>
+<a id="spinner" class="anchor" href="#spinner" aria-hidden="true"><span class="octicon octicon-link"></span></a>Spinner</h3>
+
+<p>Multiple horizontal lines are shown, each representing a layer in the hierarchy of the cluster tree. The size of each cluster depends on its distance towards the center, like a fisheye view. The horizontal lines can be grabbed by the user and moved left or right, to traverse the whole tree. Moving one layer moves all layers in the same way. Since cluster that were in the center get moved with the line to the edges of the screen new clusters appear in the center and become big. The whole tree is to be imagined as if it were painted on a cylinder, which can be rotated.
+This view would users quickly help to figure out how the overall tree is structured, since a lot of clusters a visible at any given moment, even if not all of them at the same time. The same problems, as with all distortions of space, arise. Since guessing distances is not really important, atleast not distances on the screen, and comparing relative sizes of objects is also not needed, these problems do not have a big impact. Distances are only important if measured in edges between nodes, because their actual geometric position does not encode anything. Size also does not matter and is only needed for the users themselves, because they actually need to look and understand the data.</p>
+
+<h3>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h3>
+
+<p>The whole tree structure is layed out, centered around the root, in a grid-like structure and each cluster is represented with a small thumbnail. Hovering over a node enlarges the node. Clicking on it selects it and allows for same manipulations as for all nodes in the other views. This view could be used to give a user a general overview of the data, but also combined with other views to create context. It could be moved to the bottom-right corner of an other view and always highlight the currently selected node, to show the user where they currently are in comparison to the whole tree.</p>
+
 <h1>
 <a id="expertise" class="anchor" href="#expertise" aria-hidden="true"><span class="octicon octicon-link"></span></a>Expertise</h1>
 
 <p>I will be using Java, R, and Git all of which I am familiar with. It will also be necessary to use some biology specific R-Apps, but I do not think that those should be too difficult to understand.</p>
+
+<h1>
+<a id="milestones" class="anchor" href="#milestones" aria-hidden="true"><span class="octicon octicon-link"></span></a>Milestones</h1>
+
+<h3>
+<a id="m2---may-57" class="anchor" href="#m2---may-57" aria-hidden="true"><span class="octicon octicon-link"></span></a>M2 - May 5+7</h3>
+
+<p>May 9: Meeting with Hamid
+May 10: Finalize selected visualization
+May 14: Implement parameter pane and allow for switching between new and old version
+May 17: Implement rudimentary view for the result window
+May 22: Allow basic comparison and filtering.
+May 24: Finish parameter pane (allow saving, loading and removing of presets, different input methods, etc.)
+May 28: Implement graphical representation of comparison between nodes and finish comparison pane
+May 29-June 1: BUFFER</p>
+
+<h3>
+<a id="m3---june-24" class="anchor" href="#m3---june-24" aria-hidden="true"><span class="octicon octicon-link"></span></a>M3 - June 2+4</h3>
+
+<p>June 6: Meeting with Hamid
+June 16: Implement suggestions
+June 20: Clean up code, fix all major bugs
+June 21-22: BUFFER</p>
+
+<h3>
+<a id="m4---jun-2325" class="anchor" href="#m4---jun-2325" aria-hidden="true"><span class="octicon octicon-link"></span></a>M4 - Jun 23+25</h3>
+
+<p>June 27: Meeting with Hamid
+June 28: Implement suggestions
+June 30: Final report</p>
       </section>
 
       <footer>
