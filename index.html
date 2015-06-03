@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/core.css" media="screen">
     <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
 
     <script type="text/javascript" src="javascripts/modernizr.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -47,6 +47,43 @@
 
       <section id="main_content">
         <h1>
+<a id="update-m3-for-quick-viewing-will-be-integrated-into-the-rest-afterwards---pdf" class="anchor" href="#update-m3-for-quick-viewing-will-be-integrated-into-the-rest-afterwards---pdf" aria-hidden="true"><span class="octicon octicon-link"></span></a>Update (M3) for quick viewing, will be integrated into the rest afterwards - <a href="http://error304.github.io/VIS/M3.pdf">PDF</a>
+</h1>
+
+<h2>
+<a id="current-visualization" class="anchor" href="#current-visualization" aria-hidden="true"><span class="octicon octicon-link"></span></a>Current Visualization</h2>
+
+<p>The current visualization (pictures in the presentation) implements the <a href="http://get.carrotsearch.com/foamtree/demo/">Squarified-FoamTree-Layout</a> in which the clusters size represents its amount of subclusters. The clusters to the top left are the biggest and get progressively smaller towards the bottom right. Small clusters indicate that only very few clusters were similar and therefore are outliers. </p>
+
+<p>The users are able to pan and zoom the viewport my using the mouse and mousewheel respectively. Double-clicking, clicking the plus-button or zooming in on a cluster triggers a inspection of that cluster. A swift transition occurs in which the cluster gets bigger until its bigger than the screen and becomes transparent in the process, revealing its child clusters. </p>
+
+<p>The child clusters are layed out in the same way the parent clusters were and also the same control scheme applies. It is also possible to inspect a specific child cluster, which makes this process recursive. If the user zooms out far enough until a certain threshold is hit and the cluster only occupies a certain percentage of the screen, the parent clusters will be shown again and the same transition as before occurs, just in reverse. To go back one layer the user can also click the minus-button.</p>
+
+<h2>
+<a id="prototype" class="anchor" href="#prototype" aria-hidden="true"><span class="octicon octicon-link"></span></a>Prototype</h2>
+
+<p>Not included in the new visualization design were the parameter pane and comparison pane, because both did not change at all. The parameter pane allows the user to enter a range of parameters, displays the distribution of the data and allows for filtering by adjusting the sliders. </p>
+
+<p>Implemented at the moment are the representation and controls for the result window, but not the Squarified-FoamTree-Layout. Also the parameter pane is completely functional only the comparison screen and visual comparison have to be added.</p>
+
+<h2>
+<a id="changes" class="anchor" href="#changes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Changes</h2>
+
+<p>I overhauled the result window and decided not to use one of my initial designs. The parameter and comparison panes stayed the same.</p>
+
+<h2>
+<a id="progress" class="anchor" href="#progress" aria-hidden="true"><span class="octicon octicon-link"></span></a>Progress</h2>
+
+<p>As described in the "prototype" section the big parts missing are the comparison screen and some additional features to better help the user navigate the tree and provide more context.</p>
+
+<p>As a later feature I plan on using parallelization for generating the plots.</p>
+
+<h2>
+<a id="challenges" class="anchor" href="#challenges" aria-hidden="true"><span class="octicon octicon-link"></span></a>Challenges</h2>
+
+<p>Calculating and producing the visual comparison is a major challenge and so is parallelizing certain aspects of the program further, i.e. the generation of the plots.</p>
+
+<h1>
 <a id="members" class="anchor" href="#members" aria-hidden="true"><span class="octicon octicon-link"></span></a>Members</h1>
 
 <p>Joseph Pober, <a href="mailto:error304@hotmail.de">error304@hotmail.de</a></p>
@@ -153,8 +190,9 @@ When a cluster gets chosen by the user they are presented either the individual 
 <h3>
 <a id="parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters</h3>
 
-<p><img src="http://error304.github.io/VIS/images/Parameters.PNG" alt="">
-On the top is the seed. This text field only appears if the visualization method requires randomness. Leaving it empty will generate a new, random seed to be used. If a cluster is selected, the seed that was used to generate all runs is shown. 
+<p><img src="http://error304.github.io/VIS/images/Parameters.PNG" alt=""><img src="http://error304.github.io/VIS/images/ParametersSelect.PNG" alt=""></p>
+
+<p>On the top is the seed. This text field only appears if the visualization method requires randomness. Leaving it empty will generate a new, random seed to be used. If a cluster is selected, the seed that was used to generate all runs is shown. 
 Variables allows user to select which attributes they want to be used in the visualization of the selected data. 
 For each parameter a slider is used to select the min and max values of this parameter. The slider with the lower value will be automatically the minimum and the slider with the larger value will be the maximum. It is also possible to enter a value into the text boxes next to the sliders. Those boxes display the current min and max. Little marks on the sliders show the default value for the min and max. Double-Clicking a slider will reset it to its default value. If a cluster is selected a histogram is shown above the slider, showing the distribution of this parameter across all clusters. The distribution of the parameter specifically of the selected cluster is highlighted.
 On the bottom is a button which lets the user start a run. There are multiple methods, which can be selected with the combo-box next to the button, of entering how many runs will be computed. If a cluster is selected, the user will have instead a use button. This transforms the current work pane, which is used for exploring all clusters, into the representative of the currently selected cluster.</p>
